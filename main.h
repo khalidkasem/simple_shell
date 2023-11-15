@@ -12,24 +12,24 @@
 #include <limits.h>
 #include <string.h>
 
-extern char **environ;
+extern char **environment_1;
 
 char *show_input(void);
 void prompt(void);
-char *_strcat(char *src);
-int _strlen(char *str);
-void place(char *str);
-char *findfile(char *command);
-char *find_command(char *command);
-int compare(char *s1, char *s2);
-int _strcmpdir(char *s1, char *s2);
-int charput(char c);
-void place(char *str);
-char *str_concat(char *s1, char *s2);
-int lookforslash(char *cmd);
-int compareExit(char *s1, char *s2);
-int compareEnv(char *s1, char *s2);
-void execute_proc(char **cmd);
-char **identify_string(char *parameter);
-void controlC(int sig);
+char *_strcat(char *src_k1);
+int _strlen(char *str_k1);
+void place(char *str_k1);
+char *findfile(char *command_k1);
+char *find_command(char *command_k1);
+int compare(char *k1, char *k2);
+int _strcmpdir(char *k1, char *k2);
+int charput(char k);
+void place(char *str_k1);
+char *str_concat(char *k1, char *k2);
+int lookforslash(char *cmd_k1);
+int compareExit(char *k1, char *k2);
+int compareEnv(char *k1, char *k2);
+void execute_proc(char **cmd_k1);
+char **identify_string(char *parameter_k1);
+void controlC(int sig_k1);
 #endif
