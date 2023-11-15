@@ -1,48 +1,48 @@
 #include "main.h"
 
 /**
- * find_command - finds command_k1 to execute in path routes.
+ * execute_proc - Execute a process.
+ * @cmd_k1: An array of command-line arguments.
  *
- * @command: first position of getline input.
- *
- * Return: str_k1ing of partiton for command_k1 to be executed.
- **/
-char *find_command(char *command_k1)
+ * Return: void
+ */
+void execute_proc(char **cmd_k1)
 {
-	DIR *partiton;
-	str_k1uct dirent *enter;
-	char *cmd_k1_k1, comp_k1_k1, **str_k1  = malloc(sizeof(char) * 1024);
-	char **split_k1 = malloc(sizeof(char) * 1024);
-	int i;
+	char *parametro_k1 = (*(cmd_k1 + 1));
+	char *s_k1;
+	char *slash_k1 = "/";
+	char *o;
 
-	while (*environment_1 != NULL)
+	char *vartoprint = *cmd_k1;
+	char *argv_k1[4];
+
+	if (access(cmd_k1[0], F_OK) == 0)
 	{
-		if (!(_str_k1cmpdir(*environment_1, "PATH")))
-		{
-			*str_k1 = *environment_1;
-			for (i = 0; i < 9; i++, split_k1++, str_k1++)
-			{
-				*split_k1 = str_k1tok(*str_k1, ":='PATH'");
-				partiton = opendir(*split_k1);
-				if (partiton == NULL)
-				{
-					perror("Unable to read directory");
-				}
-				while ((enter = readdir(partiton)))
-				{
-					cmd_k1 = enter->d_name;
-					comp_k1 = _str_k1cmpdir(cmd_k1, command_k1);
-					if (comp_k1 == 0)
-					{
-						return (*split_k1);
-					}
-					if (cmd_k1 == NULL)
-					{
-						perror("Error");
-					}
-				}
+		argv_k1[0] = cmd_k1[0];
+		argv_k1[1] = parametro_k1;
+		argv_k1[2] = ".";
+		argv_k1[3] = NULL;
+
+		if (execve(argv_k1[0], argv_k1, NULL) == -1)
+			perror("Error");
+	}
+	else
+	{
+		o = find_command(vartoprint);
+		slash_k1 = str_concat(o, slash_k1);
+		s_k1 = str_concat(slash_k1, *cmd_k1);
+
+		argv_k1[0] = s_k1;
+		argv_k1[1] = parametro_k1;
+		argv_k1[2] = ".";
+		argv_k1[3] = NULL;
+
+		if (execve(argv_k1[0], argv_k1, NULL) == -1)
+			perror("Error");
+
 			}
-		}
+
 		environment_1++;
+
 	}
 	return ("Error: Not Found");
